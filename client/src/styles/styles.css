@@ -1,0 +1,125 @@
+/* =======================
+   Блок: dashboard 
+   ======================= */
+.dashboard {
+    height: 100%;
+    background-color: rgba(90, 228, 191, 1);
+
+}
+
+/* Элементы дашборда (пример) */
+/* .dashboard__icon-list { ... } */
+/* .dashboard__icon-button { ... } */
+
+
+/* =======================
+   Блок: chat-list (Предполагаемый блок для .chats-container)
+   ======================= */
+.chat-list {
+    height: 100%;
+    background-color: rgba(247, 251, 251, 0.6);
+    overflow-y: auto;
+}
+
+/* Элементы списка чатов (пример) */
+/* .chat-list__item { ... } */
+/* .chat-list__item--active { ... } */ /* Модификатор активного чата */
+
+
+/* =======================
+   Блок: chat-window (Окно текущего чата)
+   ======================= */
+.chat-window {
+    height: 100%;
+    background-color: rgba(90, 228, 191, 0.4);
+    display: flex; /* Используем Flexbox для расположения output и input */
+    flex-direction: column; /* Расположить output над input */
+}
+
+/* Элемент: область вывода сообщений */
+.chat-window__output {
+    flex-grow: 1; /* Занимает все доступное пространство */
+    overflow-y: auto; /* Включаем прокрутку для сообщений */
+    padding: 1rem; /* Добавляем отступы */
+}
+
+/* Элемент: список сообщений */
+.chat-window__message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Расстояние между сообщениями */
+}
+
+/* Элемент: отдельное сообщение */
+.chat-window__message {
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+    align-self: flex-start; /* По умолчанию слева */
+}
+
+/* Модификатор для своих сообщений (пример) */
+/* .chat-window__message--own {
+    align-self: flex-end;
+    background-color: #dcf8c6; 
+} */
+
+/* Элемент: состояние отсутствия сообщений */
+.chat-window__empty-state {
+    text-align: center;
+    color: grey;
+    padding: 2rem;
+}
+
+
+/* =======================
+   Блок: input-message (Область ввода сообщения)
+   ======================= */
+.input-message {
+    /* Этот блок сам по себе может не требовать стилей,
+       если .input-message__wrapper уже задает фон/отступы */
+    background-color: #f0f0f0; /* Например, легкий фон для области ввода */
+    border-top: 1px solid #ccc; /* Линия сверху */
+}
+
+/* Элемент: обертка для инпута и кнопки */
+.input-message__wrapper {
+    display: flex; /* Используем flex для расположения инпута и кнопки в ряд */
+    align-items: center; /* Выравниваем по центру вертикально */
+    padding: 0.5rem 1rem; /* Внутренние отступы */
+}
+
+/* Элемент: поле ввода текста */
+.input-message__input {
+    flex-grow: 1; /* Занимает все доступное место слева от кнопки */
+    font-size: 16px; /* Уменьшил немного для стандартного вида */
+    padding: 0.75rem 1rem; /* Внутренние отступы */
+    border: 1px solid #ccc; /* Добавил рамку для видимости */
+    border-radius: 20px; /* Скругленные углы */
+    margin-right: 0.5rem; /* Отступ справа от кнопки */
+    height: auto; /* Убираем фиксированную высоту, пусть определяется padding */
+}
+
+.input-message__input:focus {
+    outline: none;
+    border-color: rgba(90, 228, 191, 1);
+    box-shadow: 0 0 0 2px rgba(90, 228, 191, 0.3);
+}
+
+.input-message__button {
+    border: none;
+    background-color: rgba(90, 228, 191, 1);
+    color: white;
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.input-message__button:hover {
+    background-color: rgba(70, 200, 170, 1);
+}
+
