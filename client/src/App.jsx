@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {useEffect, useState} from 'react'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+function App() {
+    const [message, setMessage] = useState('')
+    const [messages, setMessages] = useState([])
+
+    const handleSendMessage = () => {
+        if (message.trim() !== "") {
+            setMessages((prevMessages) => [...prevMessages, message.trim()])
+            setMessage("")
+        } else {
+            console.log("Пустое сообщение")
+        }
+    }
+
+    return (
+        <>
+            <h2>Чат в реальном времени</h2>
+            <div className="app-container">
+                <input
+                    className="app-input"
+                    type="text"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)} />
+                <button
+                    className="app-button"
+                    onClick={handleSendMessage}>
+                    Отправить
+                </button>
+            </div>
+            <div className="messages-list">
+                {
+                    messages.map((message, index) => (
+                        <div key={index} className="app-message-block">
+                            {message}
+                        </div>
+                    ))
+                }
+            </div>
+        </>
+    )
 }
 
 export default App
