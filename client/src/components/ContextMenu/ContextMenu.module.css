@@ -1,0 +1,45 @@
+.contextMenuOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1099;
+}
+
+.contextMenu {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1101;
+    min-width: 180px;
+    overflow: hidden;
+}
+
+.optionsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.optionItem {}
+
+.optionButton {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #333;
+}
+.optionButton:hover {
+    background-color: #f0f0f0;
+}
+
+.dangerAction {
+    color: #dc3545;
+}
+.dangerAction:hover {
+    background-color: #f8d7da;
+}
