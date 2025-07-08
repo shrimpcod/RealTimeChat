@@ -1,0 +1,58 @@
+# =========================================
+# dependencies
+# =========================================
+/node_modules
+/client/node_modules
+/server/node_modules
+
+# =========================================
+# build / production artifacts
+# =========================================
+/dist
+/build
+/client/dist
+/client/build
+/dist-ssr
+
+# =========================================
+# environment variables
+# Файлы .env содержат секреты и не должны быть в репозитории!
+# =========================================
+.env
+.env.local
+.env.*.local
+client/.env
+server/.env
+
+# Исключение для файлов-примеров, которые можно коммитить
+!*.env.example
+!*.env.development
+
+# =========================================
+# logs
+# =========================================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =========================================
+# IDE / Editor config
+# =========================================
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# =========================================
+# OS generated files
+# =========================================
+.DS_Store
+Thumbs.db
