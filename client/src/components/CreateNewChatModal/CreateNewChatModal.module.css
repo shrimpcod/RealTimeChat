@@ -1,0 +1,125 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    padding: 15px;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 450px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modalTitle {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+}
+.searchInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--focus-shadow-color);
+}
+
+.loadingMessage,
+.errorMessage,
+.noResultsMessage {
+    text-align: center;
+    padding: 15px 0;
+    color: #777;
+}
+
+.errorMessage {
+    color: #e74c3c;
+}
+
+.resultsList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    overflow-y: auto;
+    flex-grow: 1;
+    min-height: 50px;
+}
+
+.resultItem {
+    display: flex;
+    align-items: center;
+    padding: 10px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+}
+
+.resultItem:hover {
+    background-color: #f0f0f0;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    background-color: #eee;
+}
+
+.username {
+    font-weight: 500;
+    color: #333;
+}
+
+.closeButton {
+    padding: 10px 15px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    align-self: flex-end;
+    margin-top: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 480px) {
+    .modalContent {
+        padding: 15px 20px;
+    }
+    .modalTitle {
+        font-size: 1.15rem;
+        margin-bottom: 15px;
+    }
+}
