@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Настройки путей (опционально, но полезно для больших проектов) */
+    // "baseUrl": ".", // Базовый URL для разрешения не-относительных импортов
+    // "paths": {
+    //   "@/*": ["src/*"] // Пример алиаса для импортов типа import Component from '@/components/Component'
+    // }
+  },
+  "include": ["src", "vite-env.d.ts",
+    "src/custom.d.ts"
+  ],
+  //"references": [{ "path": "./tsconfig.node.json" }]
+}
