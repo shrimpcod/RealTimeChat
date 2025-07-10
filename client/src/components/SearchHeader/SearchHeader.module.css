@@ -1,0 +1,29 @@
+.searchHeader {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+}
+
+.searchInput {
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    outline: none;
+    color: #111b21;
+    padding: 8px 0;
+    text-align: right;
+}
+
+.searchInput::placeholder {
+    text-align: right;
+}
+.closeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #54656f;
+    display: flex;
+    align-items: center;
+}
