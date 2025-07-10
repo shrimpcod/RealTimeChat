@@ -1,0 +1,48 @@
+.editorBar {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #f0f2f5;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    gap: 12px;
+}
+
+.icon {
+    color: var(--primary-color);
+}
+
+.content {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.text {
+    font-size: 13px;
+    color: #65676b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cancelButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #65676b;
+    border-radius: 50%;
+}
+
+.cancelButton:hover {
+    background-color: #e4e6eb;
+}
