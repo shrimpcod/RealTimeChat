@@ -1,0 +1,78 @@
+.messageWrapper {
+    display: flex;
+    width: 100%;
+    padding: 2px 0;
+}
+
+.wrapperOwn {
+    justify-content: flex-end;
+}
+
+.wrapperTheirs {
+    justify-content: flex-start;
+}
+
+.messageBubble {
+    max-width: 65%;
+    padding: 8px 12px;
+    border-radius: 18px;
+    word-wrap: break-word;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.bubbleTheirs {
+    background-color: #ffffff;
+    border-bottom-left-radius: 6px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.bubbleOwn {
+    background-color: #dcf8c6;
+    border-bottom-right-radius: 6px;
+}
+
+.messageText {
+    color: #111b21;
+    white-space: pre-wrap;
+}
+
+.messageInfo {
+    font-size: 0.7rem;
+    color: #667781;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    user-select: none;
+    float: right;
+    clear: both;
+}
+
+.editedLabel {
+    font-style: italic;
+    margin-right: 5px;
+}
+
+.messageTime {}
+
+.messageCheckMarks {
+    margin-left: 4px;
+    color: #53bdeb;
+}
+
+.messageBubble.highlighted {
+    background-color: #ffeaa7;
+}
+
+.bubbleOwn.highlighted {
+    background-color: #c5e1a5;
+}
+
+@media (max-width: 767px) {
+    .messageBubble {
+        max-width: 80%;
+    }
+}
