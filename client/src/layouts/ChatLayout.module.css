@@ -1,0 +1,27 @@
+.chatLayoutContainer {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    grid-template-columns: 75px 1fr;
+    grid-template-rows: 1fr;
+}
+
+.mainContentWrapper {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.contentArea {
+    flex-grow: 1;
+    overflow-y: auto;
+    position: relative;
+}
+
+@media (max-width: 767px) {
+    .chatLayoutContainer {
+        grid-template-columns: 1fr;
+        box-sizing: border-box;
+    }
+}
