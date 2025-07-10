@@ -1,0 +1,147 @@
+.authContainer {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    width: 90%;
+}
+
+.authContainer h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+.formGroup {
+    margin-bottom: 18px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.inputField {
+    width: 100%;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.inputField:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--focus-shadow-color);
+}
+
+.inputError {
+    border-color: #e74c3c;
+}
+
+.inputError:focus {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.3);
+}
+
+.fieldErrorMessage {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.errorMessage {
+    color: #e74c3c;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: rgba(231, 76, 60, 0.1);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+    background-color: var(--primary-color-darker);
+}
+
+.submitButton:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.switchAuth {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.switchAuthLink {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switchAuthLink:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+    .authContainer {
+        margin: 20px auto;
+        padding: 20px;
+        box-shadow: none;
+        border: none;
+    }
+
+    .authContainer h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .authContainer {
+        padding: 30px;
+    }
+
+    .formGroup label {
+        font-size: 1rem;
+    }
+
+    .inputField {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+
+    .errorMessage {
+        font-size: 0.9rem;
+    }
+
+    .switchAuth {
+        font-size: 0.9rem;
+    }
+}
