@@ -1,0 +1,51 @@
+.dashboard {
+    height: 100%;
+    background-color: var(--primary-color);
+    padding: 5px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.topIcons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.iconButton {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.iconButton:hover {
+    background-color: var(--primary-color-darker);
+}
+
+.avatarImage {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media (max-width: 767px) {
+    .dashboard {
+        display: none;
+    }
+}
