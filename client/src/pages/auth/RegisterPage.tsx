@@ -1,100 +1,70 @@
-import {useState, FormEvent, useEffect} from "react";
-import {Link, useNavigate} from "react-router-dom";
-import {ApiError, authService} from "../../services/authApi.js";
-import  styles from './Auth.module.css'
-import {useAppDispatch, useAppSelector} from '../../store/hooks';
-import {
-    setCredentials,
-    setLoading,
-    setValidationError,
-    clearAuthErrors,
-    selectAuthIsLoading,
-    selectAuthFieldErrors,
-    selectAuthGeneralError
+// src/pages/auth/RegisterPage.tsx
 
-} from "../../store/features/auth/authSlice";
+import { Link } from 'react-router-dom';
+import { authService } from '../../services/authApi';
+import { useAuthForm } from '../../hooks/useAuthForm';
+import { AuthFormLayout } from '../../layouts/auth/AuthFormLayout';
+import { AuthInput } from '../../components/AuthInput/Authinput';
 
 function RegisterPage() {
-    const [email, setEmail] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const {
+        formData,
+        isLoading,
+        fieldErrors,
+        generalError,
+        handleChange,
+        handleFocus,
+        handleSubmit,
+    } = useAuthForm({ email: '', username: '', password: '' }, authService.register);
 
-    const navigate = useNavigate()
-    const dispatch = useAppDispatch();
-    const isLoading = useAppSelector(selectAuthIsLoading)
-    const fieldErrors = useAppSelector(selectAuthFieldErrors)
-    const generalError = useAppSelector(selectAuthGeneralError)
-
-    useEffect(() => {
-        dispatch(clearAuthErrors());
-    }, [dispatch]);
-
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        dispatch(setLoading(true))
-        try{
-            const data = await authService.register({email, username, password})
-            dispatch(setCredentials({user: data.user, token: data.token}))
-            navigate('/')
-        } catch (err: any){
-            const apiError = err as ApiError
-            dispatch(setValidationError({errors: apiError.errors, message: apiError.message}));
-            console.error('Ошибка регистрации:', err);
-        }
-    }
     return (
-        <div className={styles.authContainer}>
-            <h2>Регистрация</h2>
-            {generalError && (<p className={styles.errorMessage}>{generalError}</p>)}
-            <form onSubmit={handleSubmit}>
-                <div className={styles.formGroup}>
-                    <label htmlFor="username">Имя пользователя</label>
-                    <input
-                        className={`${styles.inputField} ${fieldErrors?.username ? styles.inputError : ''}`}
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        onFocus={() => dispatch(clearAuthErrors())}
-                    />
-                    {fieldErrors?.username && (<p className={styles.fieldErrorMessage}>{fieldErrors.username}</p>)}
-                </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="email">Почта</label>
-                    <input
-                        className={`${styles.inputField} ${fieldErrors?.email ? styles.inputError : ''}`}
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        onFocus={() => dispatch(clearAuthErrors())}
-                    />
-                    {fieldErrors?.email && (<p className={styles.fieldErrorMessage}>{fieldErrors.email}</p>)}
-                </div>
-                <div className={styles.formGroup}>
-                    <label htmlFor="password">Пароль</label>
-                    <input
-                        className={`${styles.inputField} ${fieldErrors?.password ? styles.inputError : ''}`}
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        onFocus={() => dispatch(clearAuthErrors())}
-                    />
-                    {fieldErrors?.password && (<p className={styles.fieldErrorMessage}>{fieldErrors.password}</p>)}
-                </div>
-                <button
-                    className={styles.submitButton}
-                    disabled={isLoading}
-                    type="submit">
-                    {isLoading ? 'Регистрация...' : 'Зарегистрироваться'}
-                </button>
-            </form>
-            <p className={styles.switchAuth}>
-                Уже есть аккаунт? <Link to="/login" className={styles.switchAuthLink}>Войти</Link>
-            </p>
-        </div>
-    )
+        <AuthFormLayout
+            title="Регистрация"
+            generalError={generalError}
+            onSubmit={handleSubmit}
+            isLoading={isLoading}
+            buttonText="Зарегистрироваться"
+            footer={
+                <>
+                    Уже есть аккаунт? <Link to="/login">Войти</Link>
+                </>
+            }
+        >
+            <AuthInput
+                label="Имя пользователя"
+                id="username"
+                name="username"
+                type="text"
+                value={formData.username}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                error={fieldErrors?.username}
+                disabled={isLoading}
+            />
+            <AuthInput
+                label="Почта"
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                error={fieldErrors?.email}
+                disabled={isLoading}
+            />
+            <AuthInput
+                label="Пароль"
+                id="password"
+                name="password"
+                type="password"
+                value={formData.password}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                error={fieldErrors?.password}
+                disabled={isLoading}
+            />
+        </AuthFormLayout>
+    );
 }
 
 export default RegisterPage;
