@@ -99,13 +99,13 @@
     color: #555;
 }
 
-.switchAuthLink {
+.switchAuth a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
 }
 
-.switchAuthLink:hover {
+.switchAuth a:hover {
     text-decoration: underline;
 }
 
